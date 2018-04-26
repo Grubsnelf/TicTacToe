@@ -1,0 +1,80 @@
+<?php
+	error_reporting(E_ALL & ~E_NOTICE);
+	require_once ("TicTacToe.php");
+	require_once ("Board.php");
+	require_once ("Player.php");
+	
+	session_start();
+	
+	$player1 = new Player("Thomas","X");
+	$player2 = new Player("Klaus","Y");
+	$board = new Board();
+	$_SESSION['board'] = $board->getBoard();
+	$ticTacToe = new TicTacToe($player1, $player2, $board);
+	$ticTacToe->move();
+?><!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>Tic-Tac-Toe. This is the title. It is displayed in the titlebar of the window in most browsers.</title>
+    <meta name="description" content="Tic-Tac-Toe-Game. Here is a short description for the page. This text is displayed e. g. in search engine result listings.">
+    <style>
+        table.tic td {
+            border: 1px solid #333; /* grey cell borders */
+            width: 8rem;
+            height: 8rem;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 4rem;
+            font-family: Arial;
+        }
+        table { margin-bottom: 2rem; }
+        input.field {
+            border: 0;
+            background-color: white;
+            color: white; /* make the value invisible (white) */
+            height: 8rem;
+            width: 8rem;
+            font-family: Arial;
+            font-size: 4rem;
+            font-weight: normal;
+            cursor: pointer;
+        }
+        input.field:hover {
+            color: #c81657; /* red on hover */
+        }
+        .colorX { color: #e77; } /* X is light red */
+        .colorO { color: #77e; } /* O is light blue */
+        table.tic { border-collapse: collapse; }
+    </style>
+</head>
+<body>
+   <section>
+        <h1>Tic-Tac-Toe</h1>
+        <article id="mainContent">
+            <h2>Your free browsergame!</h2>
+            <p>Type your game instructions here...</p>
+            <form method="get" action="index.php">
+                <table class="tic">
+				    <?php
+						$board = $_SESSION['board'];
+						
+						$symbol = "X";
+						
+						for($col = 0; $col <= 2; $col++){
+							echo("<tr>");
+							for($row = 0; $row <= 2; $row++){
+								if($board[$col][$row] == ""){
+									echo('<td><input type="submit" class="reset field" name="cell-'.$col.'-'.$row.'" value="'.$symbol.'" /></td>');
+								} else {
+									echo('<td><span class="color'.$board[$col][$row].'">'.$board[$col][$row].'</span></td>');
+								}
+							}
+							echo("</tr>");
+						}
+					?>
+                </table>
+            </form>
+        </article>
+    </section>
+</body>
+</html>
