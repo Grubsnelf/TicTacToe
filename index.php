@@ -7,7 +7,7 @@
 	require_once ("Player.php");
 	
 	$player1 = new Player("Thomas","X");
-	$player2 = new Player("Klaus","Y");
+	$player2 = new Player("Klaus","O");
 	$board = new Board();
 	$ticTacToe = new TicTacToe($player1, $player2, $board);
 	$ticTacToe->move();
@@ -58,7 +58,7 @@
 				    <?php
 						$board = $_SESSION['board'];
 						
-						$symbol = "X";
+						$symbol = $ticTacToe->getCurrentPlayerSymbol();
 						
 						for($col = 0; $col <= 2; $col++){
 							echo("<tr>");

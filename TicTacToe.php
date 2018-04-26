@@ -28,7 +28,7 @@ class TicTacToe
 	public function __construct ($player1, $player2, $board){
 		$this->player1 = $player1;
 		$this->player2 = $player2;
-		$this->currentPlayer = $this->player1;
+		$this->switchPlayer();
 		$this->board = $board;
 	}
 	
@@ -36,6 +36,16 @@ class TicTacToe
 	* Changes the current Player
 	*/
 	public function switchPlayer(){
+		for($col = 0; $col <= 2; $col++){
+			for($row = 0; $row <= 2; $row++){
+				if($this->player1->getSymbol() == $_GET["cell-".$col."-".$row]) {
+					$this->currentPlayer = $this->player1;
+				}
+				if($this->player2->getSymbol() == $_GET["cell-".$col."-".$row]) {
+					$this->currentPlayer = $this->player1;
+				}
+			}
+		}
 		if($this->currentPlayer === $this->player1){
 			$this->currentPlayer = $this->player2;
 		} else {
@@ -66,6 +76,13 @@ class TicTacToe
 			}
 		}
 		print_r($zaehler);
+	}
+	
+		/**
+	* 
+	*/
+	public function getCurrentPlayerSymbol(){
+		return ($this->currentPlayer->getSymbol());
 	}
 	
 }
