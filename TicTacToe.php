@@ -3,22 +3,22 @@
 class TicTacToe
 {
 	/**
-	* Wird benötigt um den Spieler1 in TicTacToe aufrufen zu können.
+	* Is needed to use player1 in TicTacToe
 	*/
 	public $player1;
 
 	/**
-	* Wird benötigt um den Spieler2 in TicTacToe aufrufen zu können.
+	* Is needed to use player2 in TicTacToe
 	*/
 	public $player2;
 	
 	/**
-	* Wird benötigt um das Board in TicTacToe aufrufen zu können.
+	* Is needed to use $board in TicTacToe
 	*/
 	public $board;
 	
 	/**
-	*
+	* Represents the current player.
 	*/
 	public $currentPlayer;
 	
@@ -32,7 +32,7 @@ class TicTacToe
 	}
 	
 	/**
-	* Wechselt den aktuellen Spieler
+	* Changes the current Player
 	*/
 	public function switchPlayer(){
 		if($this->currentPlayer === $this->player1){
@@ -44,7 +44,7 @@ class TicTacToe
 	}
 	
 	/**
-	*
+	* 
 	*/
 	public function move(){
 		$this->board->placeSymbol();

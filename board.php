@@ -23,7 +23,7 @@ class Board
 	}
 	
 	/**
-	* Postion gibt es über den Link und Symbol über die Session
+	* Position and Symbol is given by the $_GET method
 	*/
 	public function placeSymbol(){
 		for($col = 0; $col <= 2; $col++){
@@ -38,7 +38,7 @@ class Board
 	}
 	
 	/**
-	*
+	* Returns the current board.
 	*/
 	public function getBoard(){
 		return($this->board);
