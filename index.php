@@ -9,9 +9,9 @@
 	$player1 = new Player("Thomas","X");
 	$player2 = new Player("Klaus","Y");
 	$board = new Board();
-	$_SESSION['board'] = $board->getBoard();
 	$ticTacToe = new TicTacToe($player1, $player2, $board);
 	$ticTacToe->move();
+	$_SESSION['board'] = $board->getBoard();
 ?><!DOCTYPE html>
 <head>
     <meta charset="utf-8">
