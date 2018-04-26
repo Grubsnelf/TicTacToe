@@ -60,7 +60,7 @@ class TicTacToe
 		$zaehler = 0;
 		for($col = 0; $col <= 2; $col++){
 			for($row = 0; $row <= 2; $row++){
-				if($board[$col][row] !== $symbol){
+				if($board[$col][row] == $symbol){
 					$zaehler += 1;
 				}	
 			}
