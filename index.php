@@ -1,10 +1,10 @@
 <?php
+	session_start();
+	
 	error_reporting(E_ALL & ~E_NOTICE);
 	require_once ("TicTacToe.php");
 	require_once ("Board.php");
 	require_once ("Player.php");
-	
-	session_start();
 	
 	$player1 = new Player("Thomas","X");
 	$player2 = new Player("Klaus","Y");
