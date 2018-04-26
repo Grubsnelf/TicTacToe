@@ -42,7 +42,7 @@ class TicTacToe
 					$this->currentPlayer = $this->player1;
 				}
 				if($this->player2->getSymbol() == $_GET["cell-".$col."-".$row]) {
-					$this->currentPlayer = $this->player1;
+					$this->currentPlayer = $this->player2;
 				}
 			}
 		}
