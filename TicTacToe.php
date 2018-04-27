@@ -59,7 +59,7 @@ class TicTacToe
 	public function move(){
 		$this->board->placeSymbol();
 		$winner = $this->currentStatus();
-		if($winner = 1){
+		if($winner === 1){
 			echo($this->currentPlayer->getName().' wins!');
 		}
 	}
