@@ -59,23 +59,77 @@ class TicTacToe
 	*/
 	public function move(){
 		$this->board->placeSymbol();
-		$this->currentStatus();
+		$winner = $this->currentStatus();
+		print_r($winner);
 	}
 	
 	/**
 	*
 	*/
 	public function currentStatus(){
-		$symbol = $this->currentPlayer->getSymbol();
+		//symbol
+		if($this->currentPlayer === $this->player1){
+			$symbol = $this->player2->getSymbol();
+		} else {
+			$symbol = $this->player1->getSymbol();
+		}
+		$board = $this->board->getBoard();
+		
+		//col
 		$zaehler = 0;
 		for($col = 0; $col <= 2; $col++){
+			$zaehler = 0;
 			for($row = 0; $row <= 2; $row++){
-				if($board[$col][row] == $symbol){
+				if($board[$col][$row] == $symbol){
 					$zaehler += 1;
+					if($zaehler === 3) {
+						return (1);
+					}
 				}	
 			}
 		}
-		print_r($zaehler);
+		
+		//row
+		$zaehler = 0;
+		for($row = 0; $row <= 2; $row++){
+			$zaehler = 0;
+			for($col = 0; $col <= 2; $col++){
+				if($board[$col][$row] == $symbol){
+					$zaehler += 1;
+					if($zaehler === 3) {
+						return (1);
+					}
+				}	
+			}
+		}
+		
+		//diagonal (\)
+		$zaehler = 0;
+		$row = 0;
+		for($col = 0; $col <= 2; $col++){
+			echo($board[$col][$row]);
+			if($board[$col][$row] == $symbol){
+				$zaehler += 1;
+				if($zaehler === 3) {
+					return (1);
+				}
+			}
+			$row++;
+		}
+		
+		//diagonal (/)
+		$zaehler = 0;
+		$row = 2;
+		for($col = 0; $col <= 2; $col++){
+			echo($board[$col][$row]);
+			if($board[$col][$row] == $symbol){
+				$zaehler += 1;
+				if($zaehler === 3) {
+					return (1);
+				}
+			}
+			$row--;
+		}
 	}
 	
 		/**
