@@ -60,14 +60,20 @@ class TicTacToe
 		$this->board->placeSymbol();
 		$winner = $this->currentStatus();
 		if($winner === 1){
+			if($this->currentPlayer === $this->player1){
+				$this->currentPlayer = $this->player2;
+			} else {
+				$this->currentPlayer = $this->player1;
+			}
 			echo($this->currentPlayer->getName().' wins!');
+			echo("<br>New Game in 5 seconds");
 			session_destroy();
-			header("Refresh:0;url=index.php");
+			header("Refresh:5;url=index.php");
 		}
 		if($winner === 2){
 			echo("DRAW");
 			session_destroy();
-			header("Refresh:0;url=index.php");	
+			header("Refresh:5;url=index.php");	
 		}
 	}
 	
