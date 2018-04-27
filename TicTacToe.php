@@ -51,7 +51,6 @@ class TicTacToe
 		} else {
 			$this->currentPlayer = $this->player1;
 		}
-		print_r($this->currentPlayer);
 	}
 	
 	/**
@@ -60,7 +59,9 @@ class TicTacToe
 	public function move(){
 		$this->board->placeSymbol();
 		$winner = $this->currentStatus();
-		print_r($winner);
+		if($winner = 1){
+			echo($this->currentPlayer->getName().' wins!');
+		}
 	}
 	
 	/**
@@ -107,7 +108,6 @@ class TicTacToe
 		$zaehler = 0;
 		$row = 0;
 		for($col = 0; $col <= 2; $col++){
-			echo($board[$col][$row]);
 			if($board[$col][$row] == $symbol){
 				$zaehler += 1;
 				if($zaehler === 3) {
@@ -121,7 +121,6 @@ class TicTacToe
 		$zaehler = 0;
 		$row = 2;
 		for($col = 0; $col <= 2; $col++){
-			echo($board[$col][$row]);
 			if($board[$col][$row] == $symbol){
 				$zaehler += 1;
 				if($zaehler === 3) {
