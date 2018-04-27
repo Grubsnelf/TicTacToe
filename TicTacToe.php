@@ -64,6 +64,11 @@ class TicTacToe
 			session_destroy();
 			header("Refresh:0;url=index.php");
 		}
+		if($winner === 2){
+			echo("DRAW");
+			session_destroy();
+			header("Refresh:0;url=index.php");	
+		}
 	}
 	
 	/**
@@ -130,6 +135,19 @@ class TicTacToe
 				}
 			}
 			$row--;
+		}
+		
+		//fullboard (3x3)
+		$zaehler = 0;
+		for($col = 0; $col <= 2; $col++){
+			for($row = 0; $row <= 2; $row++){
+				if($board[$col][$row] != ""){
+					$zaehler += 1;
+					if($zaehler === 9) {
+						return (2);
+					}
+				}	
+			}
 		}
 	}
 	
