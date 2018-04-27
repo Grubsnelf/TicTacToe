@@ -61,6 +61,8 @@ class TicTacToe
 		$winner = $this->currentStatus();
 		if($winner === 1){
 			echo($this->currentPlayer->getName().' wins!');
+			session_destroy();
+			header("Refresh:0;url=index.php");
 		}
 	}
 	
