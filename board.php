@@ -28,8 +28,8 @@ class Board
 	public function placeSymbol(){
 		for($col = 0; $col < 3; $col++){
 			for($row = 0; $row < 3; $row++){
-				if($_GET["cell-".$col."-".$row] !== "") {
-					if($this->board[$col][$row] == "") {
+				if(isset($_GET["cell-".$col."-".$row])) {
+					if(empty($this->board[$col][$row])) {
 						$this->board[$col][$row] = $_GET["cell-".$col."-".$row];
 					}
 				}
