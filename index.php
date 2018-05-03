@@ -6,12 +6,22 @@
 	require_once ("Board.php");
 	require_once ("Player.php");
 	
-	$player1 = new Player("Thomas","X");
-	$player2 = new Player("Klaus","O");
-	$board = new Board();
-	$ticTacToe = new TicTacToe($player1, $player2, $board);
+	if ($_SESSION['tictactoe'] == ""){
+		$player1 = new Player("Thomas","X");
+		$player2 = new Player("Klaus","O");
+		$board = new Board();
+		$ticTacToe = new TicTacToe($player1, $player2, $board);
+	} else {
+		$player1 = unserialize($_SESSION['player1']);
+		$player2 = unserialize($_SESSION['player2']);
+		$board = unserialize($_SESSION['board']);
+		$ticTacToe = unserialize($_SESSION['tictactoe']);
+	}
 	$ticTacToe->move();
-	$_SESSION['board'] = $board->getBoard();
+	$_SESSION['player1'] = serialize($player1);
+	$_SESSION['player2'] = serialize($player2);
+	$_SESSION['board'] = serialize($board);
+	$_SESSION['tictactoe'] = serialize($ticTacToe);
 ?><!DOCTYPE html>
 <head>
     <meta charset="utf-8">
