@@ -6,7 +6,7 @@
 	require_once ("Board.php");
 	require_once ("Player.php");
 	
-	if ($_SESSION['tictactoe'] == ""){
+	if (empty($_SESSION['tictactoe'])){
 		$player1 = new Player("Thomas","X");
 		$player2 = new Player("Klaus","O");
 		$board = new Board();
