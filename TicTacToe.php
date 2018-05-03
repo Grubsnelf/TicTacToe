@@ -60,7 +60,6 @@ class TicTacToe
 	public function move(){
 		$this->switchPlayer();
 		$this->board->placeSymbol();
-		print_r($this->board);
 		$winner = $this->currentStatus();
 		if($winner === 1){
 			if($this->currentPlayer === $this->player1){
