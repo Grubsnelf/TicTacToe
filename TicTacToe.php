@@ -28,7 +28,6 @@ class TicTacToe
 	public function __construct ($player1, $player2, $board){
 		$this->player1 = $player1;
 		$this->player2 = $player2;
-		$this->switchPlayer();
 		$this->board = $board;
 	}
 	
@@ -59,7 +58,9 @@ class TicTacToe
 	* 
 	*/
 	public function move(){
+		$this->switchPlayer();
 		$this->board->placeSymbol();
+		print_r($this->board);
 		$winner = $this->currentStatus();
 		if($winner === 1){
 			if($this->currentPlayer === $this->player1){

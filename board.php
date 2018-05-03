@@ -11,15 +11,11 @@ class Board
 	*
 	*/
 	public function __construct (){
-		if($_SESSION['board'] == ""){
-			$this->board = [
-				["","",""], 
-				["","",""],
-				["","",""],
-			];
-		} else {
-			$this->board = $_SESSION['board'];
-		}
+		$this->board = [
+			["","",""], 
+			["","",""],
+			["","",""],
+		];
 	}
 	
 	/**

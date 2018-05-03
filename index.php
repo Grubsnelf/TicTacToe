@@ -6,12 +6,16 @@
 	require_once ("Board.php");
 	require_once ("Player.php");
 	
-	$player1 = new Player("Thomas","X");
-	$player2 = new Player("Klaus","O");
-	$board = new Board();
-	$ticTacToe = new TicTacToe($player1, $player2, $board);
+	if ($_SESSION['tictactoe'] == ""){
+		$player1 = new Player("Thomas","X");
+		$player2 = new Player("Klaus","O");
+		$board = new Board();
+		$ticTacToe = new TicTacToe($player1, $player2, $board);
+	} else {
+		$ticTacToe = unserialize($_SESSION['tictactoe']);
+	}
 	$ticTacToe->move();
-	$_SESSION['board'] = $board->getBoard();
+	$_SESSION['tictactoe'] = serialize($ticTacToe);
 ?><!DOCTYPE html>
 <head>
     <meta charset="utf-8">
@@ -56,8 +60,7 @@
             <form method="get" action="index.php">
                 <table class="tic">
 				    <?php
-						$board = $_SESSION['board'];
-						
+						$board = $ticTacToe->board->getBoard();
 						$symbol = $ticTacToe->getCurrentPlayerSymbol();
 						
 						for($col = 0; $col < 3; $col++){
