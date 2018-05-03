@@ -36,8 +36,8 @@ class TicTacToe
 	* Changes the current Player
 	*/
 	public function switchPlayer(){
-		for($col = 0; $col <= 2; $col++){
-			for($row = 0; $row <= 2; $row++){
+		for($col = 0; $col < 3; $col++){
+			for($row = 0; $row < 3; $row++){
 				if($this->player1->getSymbol() == $_GET["cell-".$col."-".$row]) {
 					$this->currentPlayer = $this->player1;
 				}
