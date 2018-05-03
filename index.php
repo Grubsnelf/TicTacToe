@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	
-	error_reporting(E_ALL & ~E_NOTICE);
+	//error_reporting(E_ALL & ~E_NOTICE);
 	require_once ("TicTacToe.php");
 	require_once ("Board.php");
 	require_once ("Player.php");
@@ -60,9 +60,9 @@
 						
 						$symbol = $ticTacToe->getCurrentPlayerSymbol();
 						
-						for($col = 0; $col <= 2; $col++){
+						for($col = 0; $col < 3; $col++){
 							echo("<tr>");
-							for($row = 0; $row <= 2; $row++){
+							for($row = 0; $row < 3; $row++){
 								if($board[$col][$row] == ""){
 									echo('<td><input type="submit" class="reset field" name="cell-'.$col.'-'.$row.'" value="'.$symbol.'" /></td>');
 								} else {
