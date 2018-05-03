@@ -12,15 +12,9 @@
 		$board = new Board();
 		$ticTacToe = new TicTacToe($player1, $player2, $board);
 	} else {
-		$player1 = unserialize($_SESSION['player1']);
-		$player2 = unserialize($_SESSION['player2']);
-		$board = unserialize($_SESSION['board']);
 		$ticTacToe = unserialize($_SESSION['tictactoe']);
 	}
 	$ticTacToe->move();
-	$_SESSION['player1'] = serialize($player1);
-	$_SESSION['player2'] = serialize($player2);
-	$_SESSION['board'] = serialize($board);
 	$_SESSION['tictactoe'] = serialize($ticTacToe);
 ?><!DOCTYPE html>
 <head>
@@ -66,8 +60,7 @@
             <form method="get" action="index.php">
                 <table class="tic">
 				    <?php
-						$board = $_SESSION['board'];
-						
+						$board = $ticTacToe->board->getBoard();
 						$symbol = $ticTacToe->getCurrentPlayerSymbol();
 						
 						for($col = 0; $col <= 2; $col++){
