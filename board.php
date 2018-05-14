@@ -3,12 +3,12 @@
 class Board
 {
 	/**
-	* Array
+	* @var array $board the board
 	*/
 	private $board;
 	
 	/**
-	*
+	* Sets $board
 	*/
 	public function __construct (){
 		$this->board = [
